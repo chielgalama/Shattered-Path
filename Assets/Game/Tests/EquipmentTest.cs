@@ -27,7 +27,7 @@ public sealed class EquipmentTest : MonoBehaviour
             $"Character Life: {character.Stats.GetValue(StatType.MaximumLife)}");
 
         Debug.Log(
-            $"Helmet Armour: {helmet.Stats.GetValue(StatType.Armour)}");
+            $"Helmet Armour: {helmet.LocalStats.GetValue(StatType.Armour)}");
 
         int equippedItems = 0;
 

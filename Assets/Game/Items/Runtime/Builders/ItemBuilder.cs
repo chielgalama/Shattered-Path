@@ -6,7 +6,7 @@ namespace ShatteredPath.Items.Runtime.Building
 {
     public static class ItemBuilder
     {
-        public static Item Build(
+        public static ItemInstance Build(
             BaseItemDefinition definition)
         {
             if (definition == null)
@@ -14,18 +14,7 @@ namespace ShatteredPath.Items.Runtime.Building
                 throw new ArgumentNullException(nameof(definition));
             }
 
-            StatCollection localStats =
-                new StatCollection(definition.BaseStats);
-
-            ModifierCollection modifiers =
-                new ModifierCollection();
-
-            Item item = new Item(
-                definition,
-                localStats,
-                modifiers);
-
-            return item;
+            return new ItemInstance(definition);
         }
     }
 }

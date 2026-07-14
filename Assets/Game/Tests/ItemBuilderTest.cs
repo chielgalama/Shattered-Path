@@ -12,7 +12,7 @@ namespace ShatteredPath.Tests
 
         private void Start()
         {
-            Item helmet = ItemBuilder.Build(helmetDefinition);
+            ItemInstance helmet = ItemBuilder.Build(helmetDefinition);
 
             Debug.Log(
                 helmet.LocalStats.GetValue(

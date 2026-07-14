@@ -8,12 +8,12 @@ namespace ShatteredPath.Items.Runtime
     {
         public BaseItemDefinition Definition { get; }
 
-        public StatCollection Stats { get; }
+        public StatCollection LocalStats { get; }
 
         public ItemInstance(BaseItemDefinition definition)
         {
             Definition = definition;
-            Stats = new StatCollection(definition.BaseStats);
+            LocalStats = new StatCollection(definition.BaseStats);
         }
     }
 }
