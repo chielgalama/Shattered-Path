@@ -9,36 +9,36 @@ namespace ShatteredPath.Tests
     {
         private void Start()
         {
-            StatCollection definitionStats =
-                new StatCollection();
+            // StatCollection definitionStats =
+            //     new StatCollection();
 
-            definitionStats.AddStat(
-                StatType.MaximumLife,
-                100.0f);
+            // definitionStats.AddStat(
+            //     StatType.MaximumLife,
+            //     100.0f);
 
-            definitionStats.AddStat(
-                StatType.MaximumMana,
-                50.0f);
+            // definitionStats.AddStat(
+            //     StatType.MaximumMana,
+            //     50.0f);
 
-            StatContext context =
-                new StatContext();
+            // StatContext context =
+            //     new StatContext();
 
-            context.AddSource(definitionStats);
+            // context.AddSource(definitionStats);
 
-            StatCollection runtimeStats =
-                new StatCollection();
+            // StatCollection runtimeStats =
+            //     new StatCollection();
 
-            StatBuilder.Build(
-                context,
-                runtimeStats);
+            // StatBuilder.Build(
+            //     context,
+            //     runtimeStats);
 
-            Debug.Log(
-                runtimeStats.GetValue(
-                    StatType.MaximumLife));
+            // Debug.Log(
+            //     runtimeStats.GetValue(
+            //         StatType.MaximumLife));
 
-            Debug.Log(
-                runtimeStats.GetValue(
-                    StatType.MaximumMana));
+            // Debug.Log(
+            //     runtimeStats.GetValue(
+            //         StatType.MaximumMana));
         }
     }
 }

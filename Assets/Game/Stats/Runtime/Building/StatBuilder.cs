@@ -1,38 +1,29 @@
-using System;
-using ShatteredPath.Stats.Runtime;
+using ShatteredPath.Characters.Runtime;
 
-namespace ShatteredPath.Stats.Runtime.Building
+namespace ShatteredPath.Stats.Runtime
 {
     public static class StatBuilder
     {
-        public static void Build(
-            StatContext context,
-            StatCollection result)
+        public static void Rebuild(Character character)
         {
-            if (context == null)
+            character.Stats.Clear();
+
+            AddCharacterBaseStats(character);
+
+            // Equipment
+            // Buffs
+            // Passives
+            // Skills
+        }
+
+        private static void AddCharacterBaseStats(Character character)
+        {
+            foreach (Stat stat in character.BaseStats.Stats)
             {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            if (result == null)
-            {
-                throw new ArgumentNullException(nameof(result));
-            }
-
-            result.Clear();
-
-            foreach (StatCollection source in context.Sources)
-            {
-                foreach (Stat stat in source.Stats)
-                {
-                    Stat runtimeStat =
-                        new Stat(
-                            stat.StatType,
-                            stat.BaseValue);
-
-                    result.AddStat(runtimeStat);
-                }
+                character.Stats.AddStat(stat.StatType, stat.BaseValue);
             }
         }
+
+        
     }
 }

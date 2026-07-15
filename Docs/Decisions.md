@@ -20,3 +20,23 @@ Refactors zijn toegestaan.
 Alleen uitvoeren wanneer een concreet probleem ontstaat.
 
 Niet vooraf optimaliseren.
+
+Decision #021
+
+Runtime Stats are persistent.
+
+Reason
+
+Stat objects own runtime state.
+
+Gameplay only changes ModifierCollections.
+
+StatBuilder is only used during object creation.
+
+Status
+
+Accepted
+
+Date
+
+2026-07-15

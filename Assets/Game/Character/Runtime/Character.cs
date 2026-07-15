@@ -8,6 +8,8 @@ namespace ShatteredPath.Characters.Runtime
     {
         public CharacterDefinition Definition { get; }
 
+        public StatCollection BaseStats { get; }
+
         public StatCollection Stats { get; }
 
         public Equipment Equipment { get; }
@@ -16,7 +18,11 @@ namespace ShatteredPath.Characters.Runtime
         {
             Definition = definition;
 
-            Stats = new StatCollection(definition.BaseStats);
+            BaseStats = new StatCollection(definition.BaseStats);
+
+            Stats = new StatCollection();
+
+            StatBuilder.Rebuild(this);
 
             Equipment = new Equipment();
         }
