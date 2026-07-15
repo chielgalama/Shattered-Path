@@ -24,7 +24,7 @@ namespace ShatteredPath.Characters.Runtime
 
             StatBuilder.Rebuild(this);
 
-            Equipment = new Equipment();
+            Equipment = new Equipment(this);
         }
     }
 }
