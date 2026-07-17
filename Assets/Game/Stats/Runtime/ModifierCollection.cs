@@ -8,6 +8,8 @@ namespace ShatteredPath.Stats.Runtime
         private readonly List<Modifier> modifiers =
             new List<Modifier>();
 
+        public List<Modifier> Modifiers { get => modifiers; }
+
         public int Count
         {
             get
@@ -24,12 +26,12 @@ namespace ShatteredPath.Stats.Runtime
             }
         }
 
-        public void Add(Modifier modifier)
+        public void AddModifier(Modifier modifier)
         {
             modifiers.Add(modifier);
         }
 
-        public bool Remove(Modifier modifier)
+        public bool RemoveModifier(Modifier modifier)
         {
             return modifiers.Remove(modifier);
         }

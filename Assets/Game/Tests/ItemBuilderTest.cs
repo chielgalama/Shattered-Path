@@ -2,7 +2,9 @@ using UnityEngine;
 using ShatteredPath.Items.Data;
 using ShatteredPath.Items.Runtime;
 using ShatteredPath.Stats.Data;
-using ShatteredPath.Items.Runtime.Building;
+using ShatteredPath.Items.Runtime.Builders;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace ShatteredPath.Tests
 {
@@ -12,11 +14,28 @@ namespace ShatteredPath.Tests
 
         private void Start()
         {
-            ItemInstance helmet = ItemBuilder.Build(helmetDefinition);
+            Dictionary<string, int> results = new Dictionary<string, int>();
 
-            Debug.Log(
-                helmet.LocalStats.GetValue(
-                    StatType.Armour));
+            for (int i = 0; i < 10000; i++)
+            {
+                ItemInstance helmet =
+                    ItemBuilder.Build(helmetDefinition);
+
+                string name =
+                    helmet.Prefixes.First().AffixName;
+
+                if (!results.ContainsKey(name))
+                {
+                    results.Add(name, 0);
+                }
+
+                results[name]++;
+            }
+
+            foreach (var result in results)
+            {
+                Debug.Log($"{result.Key}: {result.Value}");
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ShatteredPath.Stats.Data;
+using ShatteredPath.Stats.Runtime;
 using UnityEngine;
 
 namespace ShatteredPath.Items.Data
@@ -19,19 +20,45 @@ namespace ShatteredPath.Items.Data
         private ItemClassDefinition itemClass = null!;
 
         [SerializeField]
-        private List<BaseStat> baseStats = new List<BaseStat>();
-
-        [SerializeField]
         private EquipmentSlot defaultEquipmentSlot;
 
-        public string DisplayName => displayName;
+        [SerializeField]
+        private List<BaseStat> baseStats = new List<BaseStat>();
         
+        [SerializeField]
+        private List<ModifierDefinition> localModifiers = new List<ModifierDefinition>();
+
+        [SerializeField]
+        private List<ModifierDefinition> globalModifiers = new List<ModifierDefinition>();
+
+        public string DisplayName => displayName;
+
         public EquipmentSlot DefaultEquipmentSlot => defaultEquipmentSlot;
 
         public GameObject Prefab => prefab;
 
         public ItemClassDefinition ItemClass => itemClass;
 
+        [SerializeField]
+        [Min(1)]
+        private int itemLevel = 1;
+        //test
+
+        public int ItemLevel => itemLevel;
+
         public IReadOnlyList<BaseStat> BaseStats => baseStats;
+        public IReadOnlyList<ModifierDefinition> LocalModifiers => localModifiers;
+
+        public IReadOnlyList<ModifierDefinition> GlobalModifiers => globalModifiers;
+
+        [SerializeField]
+        private AffixPoolDefinition prefixPool;
+
+        [SerializeField]
+        private AffixPoolDefinition suffixPool;
+
+        public AffixPoolDefinition PrefixPool => prefixPool;
+
+        public AffixPoolDefinition SuffixPool => suffixPool;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ShatteredPath.Stats.Data;
+using UnityEngine;
 
 namespace ShatteredPath.Stats.Runtime
 {
@@ -76,6 +77,22 @@ namespace ShatteredPath.Stats.Runtime
         public bool TryGetStat(StatType statType, out Stat stat)
         {
             return stats.TryGetValue(statType, out stat);
+        }
+        public Stat GetOrCreateStat(StatType statType)
+        {
+            if (!stats.TryGetValue(statType, out Stat stat))
+            {
+                #if UNITY_EDITOR
+                Debug.LogWarning(
+                    $"StatCollection did not contain '{statType}'. " +
+                    "A new Stat has been created automatically.");
+                #endif
+
+                stat = new Stat(statType, 0f);
+                stats.Add(statType, stat);
+            }
+
+            return stat;
         }
 
         public float GetValue(StatType statType)

@@ -15,7 +15,12 @@ MonoBehaviour:
   displayName: Iron Helmet
   prefab: {fileID: 0}
   itemClass: {fileID: 11400000, guid: 62e86411c8d50cd4192937246c474033, type: 2}
+  defaultEquipmentSlot: 0
   baseStats:
   - statType: 5
     value: 12
-  defaultEquipmentSlot: 0
+  localModifiers: []
+  globalModifiers: []
+  itemLevel: 1
+  prefixPool: {fileID: 11400000, guid: a882522a9492c1049af5cca25b1894b8, type: 2}
+  suffixPool: {fileID: 11400000, guid: e07645be106c4244fa3584d9aa09df38, type: 2}

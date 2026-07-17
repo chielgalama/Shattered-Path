@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ShatteredPath.Items.Data;
 using ShatteredPath.Characters.Runtime;
 using ShatteredPath.Stats.Runtime;
+using ShatteredPath.Stats.Data;
 
 namespace ShatteredPath.Items.Runtime
 {
@@ -32,21 +33,47 @@ namespace ShatteredPath.Items.Runtime
             equippedItems[slot] = item;
 
             ApplyItem(item);
+            ApplyGlobalModifiers(item);
         }
 
         private void ApplyItem(ItemInstance item)
         {
-            foreach (Stat stat in item.LocalStats.Stats)
+            foreach (Stat stat in item.FinalStats.Stats)
             {
-                if (!owner.Stats.TryGetStat(stat.StatType, out Stat ownerStat))
-                {
-                    continue;
-                }
+                StatApplication application = StatApplicationDatabase.GetApplication(stat.StatType);
 
-                foreach (Modifier modifier in stat.Modifiers)
+                switch (application)
                 {
-                    ownerStat.AddModifier(modifier);
-                }
+                    case StatApplication.FlatModifier:
+                        if (!owner.Stats.TryGetStat(stat.StatType, out Stat ownerStat))
+                        {
+                            ownerStat = new Stat(stat.StatType, 0f);
+                            owner.Stats.AddStat(ownerStat);
+                        }
+
+                        Modifier modifier = new Modifier(
+                            stat.StatType,
+                            ModifierOperation.Flat,
+                            stat.Value);
+
+                        ownerStat.AddModifier(modifier);
+
+                        item.AppliedModifiers[stat.StatType] = modifier;
+
+                        break;
+
+                    case StatApplication.BaseOverride:
+                        break;
+                };
+            }
+        }
+
+        private void ApplyGlobalModifiers(ItemInstance item)
+        {
+            foreach (Modifier modifier in item.GlobalModifiers.Modifiers)
+            {
+                Stat stat = owner.Stats.GetOrCreateStat(modifier.StatType);
+                stat.AddModifier(modifier);
             }
         }
 
@@ -64,16 +91,42 @@ namespace ShatteredPath.Items.Runtime
 
         private void RemoveItem(ItemInstance item)
         {
-            foreach (Stat stat in item.LocalStats.Stats)
+            foreach (Stat stat in item.FinalStats.Stats)
             {
-                if (!owner.Stats.TryGetStat(stat.StatType, out Stat ownerStat))
-                {
-                    continue;
-                }
+                StatApplication application = StatApplicationDatabase.GetApplication(stat.StatType);
 
-                foreach (Modifier modifier in stat.Modifiers)
+                switch (application)
                 {
-                    ownerStat.RemoveModifier(modifier);
+                    case StatApplication.FlatModifier:
+                        if (!owner.Stats.TryGetStat(stat.StatType, out Stat ownerStat))
+                        {
+                            break;
+                        }
+
+                        if (!item.AppliedModifiers.TryGetValue(stat.StatType, out Modifier modifier))
+                        {
+                            break;
+                        }
+
+                        ownerStat.RemoveModifier(modifier);
+
+                        break;
+
+                    case StatApplication.BaseOverride:
+                        break;
+                };
+            }
+
+            // remove global item modifiers
+        }
+
+        private void RemoveGlobalModifiers(ItemInstance item)
+        {
+            foreach (Modifier modifier in item.GlobalModifiers.Modifiers)
+            {
+                if (owner.Stats.TryGetStat(modifier.StatType, out Stat stat))
+                {
+                    stat.RemoveModifier(modifier);
                 }
             }
         }

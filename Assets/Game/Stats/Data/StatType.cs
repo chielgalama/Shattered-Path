@@ -22,6 +22,8 @@ namespace ShatteredPath.Stats.Data
 
         // Offence
         PhysicalDamage,
+        PhysicalDamageMinimum,
+        PhysicalDamageMaximum,
         FireDamage,
         ColdDamage,
         LightningDamage,

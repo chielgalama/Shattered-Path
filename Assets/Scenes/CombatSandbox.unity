@@ -367,6 +367,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663493319}
   - component: {fileID: 1663493320}
+  - component: {fileID: 1663493321}
   m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
@@ -396,12 +397,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663493317}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a39d8cc4784b43546b6fa13bd390165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ScatteredPath::ShatteredPath.Tests.ItemBuilderTest
   helmetDefinition: {fileID: 11400000, guid: 2e4d8c8089f7294408a6104646e453f2, type: 2}
+--- !u!114 &1663493321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663493317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54058b3f0c821d146bef909cf5966377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ScatteredPath::EquipmentTest
+  characterDefinition: {fileID: 11400000, guid: 8a561a39dd0e02c498dd930fb7eeef40, type: 2}
+  helmetDefinition: {fileID: 11400000, guid: 2e4d8c8089f7294408a6104646e453f2, type: 2}
+  heavyAffix: {fileID: 11400000, guid: 11b17deb2c5312d4e93815cf7da9919b, type: 2}
 --- !u!1001 &3435317912202302609
 PrefabInstance:
   m_ObjectHideFlags: 0

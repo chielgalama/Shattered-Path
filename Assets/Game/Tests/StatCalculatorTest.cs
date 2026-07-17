@@ -9,17 +9,17 @@ public sealed class StatCalculatorTest : MonoBehaviour
     {
         ModifierCollection modifiers = new ModifierCollection();
 
-        modifiers.Add(new Modifier(
+        modifiers.AddModifier(new Modifier(
             StatType.MaximumLife,
             ModifierOperation.Flat,
             50));
 
-        modifiers.Add(new Modifier(
+        modifiers.AddModifier(new Modifier(
             StatType.MaximumLife,
             ModifierOperation.Additive,
             20));
 
-        modifiers.Add(new Modifier(
+        modifiers.AddModifier(new Modifier(
             StatType.MaximumLife,
             ModifierOperation.Multiplicative,
             10));

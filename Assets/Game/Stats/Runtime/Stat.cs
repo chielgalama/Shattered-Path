@@ -42,14 +42,14 @@ namespace ShatteredPath.Stats.Runtime
 
         public void AddModifier(Modifier modifier)
         {
-            Modifiers.Add(modifier);
+            Modifiers.AddModifier(modifier);
 
             isDirty = true;
         }
 
         public bool RemoveModifier(Modifier modifier)
         {
-            bool removed = Modifiers.Remove(modifier);
+            bool removed = Modifiers.RemoveModifier(modifier);
 
             if (removed)
             {
