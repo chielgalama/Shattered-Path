@@ -12,6 +12,15 @@ namespace ShatteredPath.Stats.Runtime
         {
             StatType = statType;
             Operation = operation;
+
+            switch(operation)
+            {
+                case ModifierOperation.Additive:
+                case ModifierOperation.Multiplicative:
+                    value /= 100f;
+                    break;
+            }
+
             Value = value;
         }
 

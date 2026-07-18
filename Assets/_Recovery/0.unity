@@ -415,6 +415,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54058b3f0c821d146bef909cf5966377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ScatteredPath::EquipmentTest
+  characterDefinition: {fileID: 11400000, guid: 8a561a39dd0e02c498dd930fb7eeef40, type: 2}
+  helmetDefinition: {fileID: 11400000, guid: 2e4d8c8089f7294408a6104646e453f2, type: 2}
+  heavyAffix: {fileID: 11400000, guid: 11b17deb2c5312d4e93815cf7da9919b, type: 2}
 --- !u!1001 &3435317912202302609
 PrefabInstance:
   m_ObjectHideFlags: 0

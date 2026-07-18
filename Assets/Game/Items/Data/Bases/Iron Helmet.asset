@@ -21,6 +21,5 @@ MonoBehaviour:
     value: 12
   localModifiers: []
   globalModifiers: []
-  itemLevel: 1
-  prefixPool: {fileID: 11400000, guid: a882522a9492c1049af5cca25b1894b8, type: 2}
-  suffixPool: {fileID: 11400000, guid: e07645be106c4244fa3584d9aa09df38, type: 2}
+  itemLevel: 100
+  itemPool: {fileID: 11400000, guid: 68f4d8fd0ed7f474c9898088b260f16e, type: 2}

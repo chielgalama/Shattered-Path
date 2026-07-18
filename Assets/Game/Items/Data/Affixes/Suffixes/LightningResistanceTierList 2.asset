@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094837080821a304d9746267c9d9463c, type: 3}
+  m_Name: LightningResistanceTierList 2
+  m_EditorClassIdentifier: ScatteredPath::ShatteredPath.Items.Data.SuffixTierListDefinition
+  affixName: '% Increased Fire Resistance'
+  statType: 9
+  modifierOperation: 1
+  tiers:
+  - tierName: of Zapping
+    requiredItemLevel: 1
+    weight: 100
+    minimumValue: 10
+    maximumValue: 19
+  - tierName: of Shocking
+    requiredItemLevel: 10
+    weight: 100
+    minimumValue: 20
+    maximumValue: 29
+  - tierName: of Thunder
+    requiredItemLevel: 20
+    weight: 100
+    minimumValue: 30
+    maximumValue: 39

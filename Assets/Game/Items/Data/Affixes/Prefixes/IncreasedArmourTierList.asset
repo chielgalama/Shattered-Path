@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f094780efcc97d45b54d41a80dbaa69, type: 3}
+  m_Name: IncreasedArmourTierList
+  m_EditorClassIdentifier: ScatteredPath::ShatteredPath.Items.Data.PrefixTierListDefinition
+  affixName: '% Increased Armour'
+  statType: 5
+  modifierOperation: 1
+  tiers:
+  - tierName: Bronze
+    requiredItemLevel: 1
+    weight: 100
+    minimumValue: 10
+    maximumValue: 19
+  - tierName: Copper
+    requiredItemLevel: 10
+    weight: 100
+    minimumValue: 20
+    maximumValue: 29
+  - tierName: Iron
+    requiredItemLevel: 20
+    weight: 100
+    minimumValue: 30
+    maximumValue: 39

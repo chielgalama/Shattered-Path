@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: ScatteredPath::ShatteredPath.Items.Data.AffixPoolDefinition
   affixes:
   - {fileID: 11400000, guid: 11b17deb2c5312d4e93815cf7da9919b, type: 2}
+  - {fileID: 11400000, guid: 8d83e2ff8c20d4c44a9dc82638ef813b, type: 2}
   - {fileID: 11400000, guid: b8d78dd6bb106c94e95804c96e6cb7c6, type: 2}

@@ -18,13 +18,13 @@ namespace ShatteredPath.Items.Runtime
         public ModifierCollection LocalModifiers { get; }
         public ModifierCollection GlobalModifiers { get; }
 
-        public IReadOnlyList<AffixDefinition> Prefixes => prefixes;
+        private readonly List<AffixInstance> prefixes = new List<AffixInstance>();
 
-        public IReadOnlyList<AffixDefinition> Suffixes => suffixes;
+        private readonly List<AffixInstance> suffixes = new List<AffixInstance>();
 
-        private readonly List<AffixDefinition> prefixes = new List<AffixDefinition>();
+        public IReadOnlyList<AffixInstance> Prefixes => prefixes;
 
-        private readonly List<AffixDefinition> suffixes = new List<AffixDefinition>();
+        public IReadOnlyList<AffixInstance> Suffixes => suffixes;
 
         public ItemInstance(BaseItemDefinition definition)
         {
@@ -51,51 +51,53 @@ namespace ShatteredPath.Items.Runtime
             RecalculateLocalStats();
         }
 
-        public void AddAffix(AffixDefinition affix)
+        public void AddPrefix(AffixInstance prefix)
         {
-            switch (affix.AffixType)
-            {
-                case AffixType.Prefix:
-                    prefixes.Add(affix);
-                    break;
+            prefixes.Add(prefix);
 
-                case AffixType.Suffix:
-                    suffixes.Add(affix);
-                    break;
-            }
-
-            foreach (ModifierDefinition modifier in affix.Modifiers)
+            foreach (Modifier modifier in prefix.Modifiers)
             {
-                LocalModifiers.AddModifier(
-                    modifier.CreateRuntimeModifier());
+                LocalModifiers.AddModifier(modifier);
             }
 
             RecalculateLocalStats();
         }
 
-        public bool RemoveAffix(AffixDefinition affix)
+        public void AddSuffix(AffixInstance suffix)
         {
-           switch (affix.AffixType)
-            {
-                case AffixType.Prefix:
-                    prefixes.Remove(affix);
-                    break;
+            suffixes.Add(suffix);
 
-                case AffixType.Suffix:
-                    suffixes.Remove(affix);
-                    break;
-            }
-
-            foreach (ModifierDefinition modifier in affix.Modifiers)
+            foreach (Modifier modifier in suffix.Modifiers)
             {
-                LocalModifiers.RemoveModifier(
-                    modifier.CreateRuntimeModifier());
+                LocalModifiers.AddModifier(modifier);
             }
 
             RecalculateLocalStats();
-
-            return true;
         }
+
+        // public bool RemoveAffix(AffixDefinition affix)
+        // {
+        //    switch (affix.AffixType)
+        //     {
+        //         case AffixType.Prefix:
+        //             prefixes.Remove(affix);
+        //             break;
+
+        //         case AffixType.Suffix:
+        //             suffixes.Remove(affix);
+        //             break;
+        //     }
+
+        //     foreach (ModifierDefinition modifier in affix.Modifiers)
+        //     {
+        //         LocalModifiers.RemoveModifier(
+        //             modifier.CreateRuntimeModifier());
+        //     }
+
+        //     RecalculateLocalStats();
+
+        //     return true;
+        // }
 
         public void AddLocalModifier(Modifier modifier)
         {

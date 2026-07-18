@@ -52,13 +52,8 @@ namespace ShatteredPath.Items.Data
         public IReadOnlyList<ModifierDefinition> GlobalModifiers => globalModifiers;
 
         [SerializeField]
-        private AffixPoolDefinition prefixPool;
+        private ItemPoolDefinition itemPool;
 
-        [SerializeField]
-        private AffixPoolDefinition suffixPool;
-
-        public AffixPoolDefinition PrefixPool => prefixPool;
-
-        public AffixPoolDefinition SuffixPool => suffixPool;
+        public ItemPoolDefinition ItemPool => itemPool;
     }
 }

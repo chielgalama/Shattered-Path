@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15b7c70b0aeaaf4e9c98c7cab7992a7, type: 3}
+  m_Name: HelmetSuffixesPool
+  m_EditorClassIdentifier: ScatteredPath::ShatteredPath.Items.Data.SuffixPoolDefinition
+  tierLists:
+  - {fileID: 11400000, guid: 323081f2d8c515243893a9c77a0e6002, type: 2}
+  - {fileID: 11400000, guid: b974e9fddadbe154e83402482f726771, type: 2}
+  - {fileID: 11400000, guid: b20fd0a7103873c409ad7d8760f78f8b, type: 2}
